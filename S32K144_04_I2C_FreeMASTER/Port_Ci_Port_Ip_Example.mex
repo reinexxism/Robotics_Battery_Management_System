@@ -78,6 +78,16 @@
                         <pin_feature name="direction" value="INPUT"/>
                      </pin_features>
                   </pin>
+                  <pin peripheral="FXIO" signal="fxio_d4" pin_num="6" pin_signal="PTE10">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="FXIO" signal="fxio_d5" pin_num="5" pin_signal="PTE11">
+                     <pin_features>
+                        <pin_feature name="direction" value="INPUT"/>
+                     </pin_features>
+                  </pin>
                </pins>
             </function>
          </functions_list>
@@ -328,6 +338,26 @@
                   <data type="Version">1.0.0</data>
                </feature>
             </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.flexio_i2c" description="Flexio_I2c is not found in the toolchain/IDE project. The project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.flexio_i2c" description="An unsupported version of the Flexio_I2c in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. The project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.flexio_mcl" description="flexio_mcl is not found in the toolchain/IDE project. The project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.flexio_mcl" description="An unsupported version of the flexio_mcl in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. The project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
             <dependency resourceType="Tool" resourceId="Clocks" description="The Clocks tool is required by the Peripherals tool, but it is disabled." problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
                   <data>true</data>
@@ -336,6 +366,13 @@
          </dependencies>
          <generated_project_files>
             <file path="generate/include/DeviceDefinition.h" update_enabled="true"/>
+            <file path="generate/include/Flexio_I2c_Ip_Cfg.h" update_enabled="true"/>
+            <file path="generate/include/Flexio_I2c_Ip_CfgDefines.h" update_enabled="true"/>
+            <file path="generate/include/Flexio_I2c_Ip_VS_0_PBcfg.h" update_enabled="true"/>
+            <file path="generate/include/Flexio_Mcl_Ip_Cfg.h" update_enabled="true"/>
+            <file path="generate/include/Flexio_Mcl_Ip_Cfg_Defines.h" update_enabled="true"/>
+            <file path="generate/include/Flexio_Mcl_Ip_Cfg_DeviceRegisters.h" update_enabled="true"/>
+            <file path="generate/include/Flexio_Mcl_Ip_VS_0_PBcfg.h" update_enabled="true"/>
             <file path="generate/include/Gpio_Dio_Ip_Cfg.h" update_enabled="true"/>
             <file path="generate/include/IntCtrl_Ip_Cfg.h" update_enabled="true"/>
             <file path="generate/include/IntCtrl_Ip_CfgDefines.h" update_enabled="true"/>
@@ -353,6 +390,8 @@
             <file path="generate/include/Port_Ci_Port_Ip_Defines.h" update_enabled="true"/>
             <file path="generate/include/Soc_Ips.h" update_enabled="true"/>
             <file path="generate/include/modules.h" update_enabled="true"/>
+            <file path="generate/src/Flexio_I2c_Ip_VS_0_PBcfg.c" update_enabled="true"/>
+            <file path="generate/src/Flexio_Mcl_Ip_VS_0_PBcfg.c" update_enabled="true"/>
             <file path="generate/src/IntCtrl_Ip_Cfg.c" update_enabled="true"/>
             <file path="generate/src/LPit_Gpt_Ip_VS_0_PBcfg.c" update_enabled="true"/>
             <file path="generate/src/Lpi2c_Ip_VS_0_PBcfg.c" update_enabled="true"/>
@@ -672,6 +711,91 @@
                                     <setting name="lpi2c_slave_cfg_slaveCallback" value="NULL_PTR"/>
                                     <setting name="lpi2c_slave_cfg_callbackParam" value="0"/>
                                  </struct>
+                              </struct>
+                           </array>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="Flexio_I2c" uuid="e63d257d-c32b-499d-bf94-9aa192674547" type="Flexio_I2c" type_id="Flexio_I2c" mode="flexio_i2c" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="Flexio_I2c">
+                        <setting name="Name" value="Flexio_I2c"/>
+                        <struct name="ConfigTimeSupport">
+                           <setting name="POST_BUILD_VARIANT_USED" value="false"/>
+                           <setting name="IMPLEMENTATION_CONFIG_VARIANT" value="VARIANT-POST-BUILD"/>
+                        </struct>
+                        <struct name="I2cIpGeneralConfig">
+                           <setting name="Name" value="I2cIpGeneralConfig"/>
+                           <setting name="I2cEnableUserModeSupport" value="false"/>
+                           <setting name="I2cDevErrorDetect" value="false"/>
+                           <setting name="I2cDmaUsed" value="false"/>
+                           <setting name="I2cTimeoutMethod" value="OSIF_COUNTER_DUMMY"/>
+                           <array name="I2c_UserCallback"/>
+                           <array name="I2c_UserErrorCallback"/>
+                        </struct>
+                        <array name="arrayI2CChannelConfig">
+                           <struct name="0">
+                              <setting name="Name" value="I2cChannelConfig_0"/>
+                              <setting name="I2cChannelId" value="0"/>
+                              <setting name="I2cHwChannel" value="FLEXIO_0_CH_0_1"/>
+                              <setting name="I2cMasterSlaveConfiguration" value="MASTER_MODE"/>
+                              <struct name="I2cFlexIOMasterConfiguration">
+                                 <setting name="Name" value="Flexio_I2cMasterChannel0"/>
+                                 <setting name="flexio_i2c_master_cfg_slaveAddress" value="0x08"/>
+                                 <setting name="I2cAsyncMethod" value="FLEXIO_I2C_USING_INTERRUPTS"/>
+                                 <setting name="I2cDmaTxChannelRef" value=""/>
+                                 <setting name="I2cDmaRxChannelRef" value=""/>
+                                 <setting name="SclFlexioRef" value="/Flexio_Mcl_Ip/FlexioMcl/MclConfig/FlexioCommon_0/FlexioMclLogicChannels_0"/>
+                                 <setting name="SdaFlexioRef" value="/Flexio_Mcl_Ip/FlexioMcl/MclConfig/FlexioCommon_0/FlexioMclLogicChannels_1"/>
+                                 <setting name="I2cClockFunctionalGroupRef" value="BOARD_BootClockRUN"/>
+                                 <setting name="I2cFlexIOCompareValue" value="31"/>
+                              </struct>
+                           </struct>
+                        </array>
+                     </config_set>
+                  </instance>
+                  <instance name="Flexio_Mcl_Ip" uuid="bef913ae-3130-4fb6-81fb-8fcdf4df0827" type="Flexio_Mcl_Ip" type_id="Flexio_Mcl_Ip" mode="flexio_mcl" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="Flexio_Mcl_Ip">
+                        <setting name="Name" value="FlexioMcl"/>
+                        <struct name="ConfigTimeSupport">
+                           <setting name="POST_BUILD_VARIANT_USED" value="false"/>
+                           <setting name="IMPLEMENTATION_CONFIG_VARIANT" value="VARIANT-POST-BUILD"/>
+                        </struct>
+                        <struct name="MclGeneral">
+                           <setting name="Name" value="MclGeneral"/>
+                           <setting name="MclEnableUserModeSupport" value="false"/>
+                           <struct name="MclFlexioCommon">
+                              <setting name="Name" value="MclFlexioCommon"/>
+                              <setting name="MclEnableFlexioCommon" value="true"/>
+                              <setting name="MclEnableFlexioDevErrorDetect" value="false"/>
+                           </struct>
+                        </struct>
+                        <struct name="MclConfig">
+                           <setting name="Name" value="MclConfig"/>
+                           <array name="FlexioCommon">
+                              <struct name="0">
+                                 <setting name="Name" value="FlexioCommon_0"/>
+                                 <setting name="FlexioMclInstances" value="FLEXIO_0"/>
+                                 <setting name="FlexioDebugEnable" value="false"/>
+                                 <array name="FlexioMclLogicChannels">
+                                    <struct name="0">
+                                       <setting name="Name" value="FlexioMclLogicChannels_0"/>
+                                       <setting name="FlexioMclChannelId" value="CHANNEL_0"/>
+                                       <setting name="FlexioMclPinId" value="PIN_4"/>
+                                       <setting name="FlexioMclAddPinEnable" value="false"/>
+                                       <setting name="FlexioMclAddPinId" value="PIN_0"/>
+                                       <setting name="FlexioMclAddChannelEnable" value="false"/>
+                                       <setting name="FlexioMclAddChannelId" value="CHANNEL_0"/>
+                                    </struct>
+                                    <struct name="1">
+                                       <setting name="Name" value="FlexioMclLogicChannels_1"/>
+                                       <setting name="FlexioMclChannelId" value="CHANNEL_1"/>
+                                       <setting name="FlexioMclPinId" value="PIN_5"/>
+                                       <setting name="FlexioMclAddPinEnable" value="false"/>
+                                       <setting name="FlexioMclAddPinId" value="PIN_0"/>
+                                       <setting name="FlexioMclAddChannelEnable" value="false"/>
+                                       <setting name="FlexioMclAddChannelId" value="CHANNEL_0"/>
+                                    </struct>
+                                 </array>
                               </struct>
                            </array>
                         </struct>

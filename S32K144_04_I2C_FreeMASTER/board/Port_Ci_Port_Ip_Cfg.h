@@ -96,7 +96,7 @@ extern "C"{
 #define RED_LED_PORT    IP_PTD
 #define RED_LED_PIN     15U
 /*! @brief User number of configured pins */
-#define NUM_OF_CONFIGURED_PINS_PortContainer_0_VS_0 7
+#define NUM_OF_CONFIGURED_PINS_PortContainer_0_VS_0 9
 
 #define PORT_START_SEC_CONFIG_DATA_UNSPECIFIED
 #include "Port_MemMap.h"

@@ -194,9 +194,9 @@
 		<COND_TOOLCHAIN_CUSTOM_OPTION/>
 	</storageModule>
 	<storageModule moduleId="com.nxp.s32ds.cle.uct.internal.core.toolchainScriptProfile">
-		<COND_TOOLCHAIN_COMPONENTS_OPTION>COPY=platform.driver.clock;platform.driver.osif;platform.driver.IntCtrl_Ip;platform.driver.lpuart_uart;platform.driver.lpi2c;platform.driver.gpio_dio;platform.driver.lpit_gpt;platform.driver.port_ip</COND_TOOLCHAIN_COMPONENTS_OPTION>
+		<COND_TOOLCHAIN_COMPONENTS_OPTION>COPY=platform.driver.clock;platform.driver.osif;platform.driver.IntCtrl_Ip;platform.driver.lpuart_uart;platform.driver.flexio_i2c;platform.driver.lpi2c;platform.driver.gpio_dio;platform.driver.lpit_gpt;platform.driver.flexio_mcl;platform.driver.port_ip</COND_TOOLCHAIN_COMPONENTS_OPTION>
 	</storageModule>
 	<storageModule moduleId="com.nxp.s32ds.cle.uct.core">
-		<sdkComponents>platform.driver.clock;platform.driver.rte_mcu;platform.driver.osif;platform.driver.det;platform.driver.gpio_dio;platform.driver.rte_dio;platform.driver.port_ip;platform.driver.rte_port;platform.driver.lpit_gpt;platform.driver.rte_gpt;platform.driver.IntCtrl_Ip;platform.driver.lpuart_uart;platform.driver.rte_uart;platform.driver.lpi2c;platform.driver.rte_i2c</sdkComponents>
+		<sdkComponents>platform.driver.clock;platform.driver.rte_mcu;platform.driver.osif;platform.driver.det;platform.driver.gpio_dio;platform.driver.rte_dio;platform.driver.port_ip;platform.driver.rte_port;platform.driver.lpit_gpt;platform.driver.rte_gpt;platform.driver.IntCtrl_Ip;platform.driver.lpuart_uart;platform.driver.rte_uart;platform.driver.lpi2c;platform.driver.rte_i2c;platform.driver.flexio_i2c;platform.driver.flexio_mcl;platform.driver.rte_mcl</sdkComponents>
 	</storageModule>
 </cproject>

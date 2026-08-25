@@ -130,6 +130,8 @@ PortContainer_0_VS_0:
   - {pin_num: '80', peripheral: LPUART1, signal: lpuart1_tx, pin_signal: PTC7, direction: OUTPUT}
   - {pin_num: '72', peripheral: LPI2C0, signal: lpi2c0_scl, pin_signal: PTA3, direction: OUTPUT}
   - {pin_num: '73', peripheral: LPI2C0, signal: lpi2c0_sda, pin_signal: PTA2, direction: INPUT}
+  - {pin_num: '6', peripheral: FXIO, signal: fxio_d4, pin_signal: PTE10, direction: INPUT}
+  - {pin_num: '5', peripheral: FXIO, signal: fxio_d5, pin_signal: PTE11, direction: INPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -221,6 +223,28 @@ Port_Ci_Port_Ip_PinSettingsConfig g_pin_mux_InitConfigArr_PortContainer_0_VS_0[N
         .direction       = PORT_CI_PORT_PIN_OUT,
         .digitalFilter   = (boolean)FALSE,
         .initValue       = 1U,
+    },
+    {
+        .portBase        = IP_PORTE,
+        .gpioBase        = NULL_PTR,
+        .pinPortIdx      = 10U,
+        .pullConfig      = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .driveStrength   = PORT_DRIVE_STRENGTH_LOW,
+        .passiveFilter   = (boolean)FALSE,
+        .mux             = PORT_MUX_ALT6,
+        .lockRegister    = PORT_LOCK_REGISTER_DISABLED,
+        .digitalFilter   = (boolean)FALSE,
+    },
+    {
+        .portBase        = IP_PORTE,
+        .gpioBase        = NULL_PTR,
+        .pinPortIdx      = 11U,
+        .pullConfig      = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .driveStrength   = PORT_DRIVE_STRENGTH_LOW,
+        .passiveFilter   = (boolean)FALSE,
+        .mux             = PORT_MUX_ALT6,
+        .lockRegister    = PORT_LOCK_REGISTER_DISABLED,
+        .digitalFilter   = (boolean)FALSE,
     },
 };
 
