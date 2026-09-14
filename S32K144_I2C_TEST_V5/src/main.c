@@ -17,6 +17,12 @@ volatile uint32_t cells_read = 0U;
 volatile uint32_t i2c_result = 0U;
 volatile uint32_t i2c_last_msr = 0U;
 volatile uint32_t read_done = 0U;
+volatile int16_t bmic_temp_c = -32768;
+volatile uint32_t temperature_result = 0U;
+volatile uint32_t scan_count = 0U;
+volatile uint32_t scan_error_count = 0U;
+/* 1 only when every value in the latest scan was read successfully. */
+volatile uint32_t scan_valid = 0U;
 
 /* Bounded polling: iteration limit, not a calibrated time in milliseconds. */
 static int WaitFlag(uint32_t flag)
@@ -42,7 +48,7 @@ static int WaitFlag(uint32_t flag)
     return 0;
 }
 
-static void ReadCell(uint8_t register_address, uint32_t cell_index)
+static void ReadInt16(uint8_t register_address, volatile int16_t *value)
 {
     uint8_t rx[2];
     i2c_result = 0U;
@@ -76,26 +82,12 @@ static void ReadCell(uint8_t register_address, uint32_t cell_index)
     }
     if (!WaitFlag(LPI2C_MSR_SDF_MASK)) { return; }
 
-    cell_mV[cell_index] = (int16_t)((uint16_t)rx[0] | ((uint16_t)rx[1] << 8U));
+    *value = (int16_t)((uint16_t)rx[0] | ((uint16_t)rx[1] << 8U));
     i2c_result = 1U;
 }
 
-int main(void)
+static void InitI2c(void)
 {
-    clock_status = Clock_Ip_Init(&Clock_Ip_aClockConfig[0]);
-    if (clock_status != CLOCK_IP_SUCCESS)
-    {
-        i2c_result = 4U;
-        read_done = 1U;
-        for (;;) { }
-    }
-
-    IP_PCC->PCCn[PCC_PORTA_INDEX] |= PCC_PCCn_CGC_MASK;
-    IP_PCC->PCCn[PCC_PORTD_INDEX] |= PCC_PCCn_CGC_MASK;
-    Port_Ci_Port_Ip_Init(
-        NUM_OF_CONFIGURED_PINS_PortContainer_0_BOARD_InitPeripherals,
-        g_pin_mux_InitConfigArr_PortContainer_0_BOARD_InitPeripherals);
-
     /* Existing generated clock configuration: SIRCDIV2 = 8 MHz. */
     IP_PCC->PCCn[PCC_LPI2C0_INDEX] |= PCC_PCCn_CGC_MASK;
     IP_LPI2C0->MCR = LPI2C_MCR_RST_MASK;
@@ -114,22 +106,67 @@ int main(void)
                       LPI2C_MCCR0_DATAVD(9U);
     IP_LPI2C0->MFCR = 0U;
     IP_LPI2C0->MCR = LPI2C_MCR_MEN_MASK;
+}
 
-    /* Six separate two-byte reads, once per program run. */
-    for (uint32_t cell = 0U; cell < CELL_COUNT; cell++)
+int main(void)
+{
+    clock_status = Clock_Ip_Init(&Clock_Ip_aClockConfig[0]);
+    if (clock_status != CLOCK_IP_SUCCESS)
     {
-        uint8_t address = (uint8_t)(0x14U + (2U * cell));
-        ReadCell(address, cell);
-        cell_result[cell] = i2c_result;
-        if (i2c_result != 1U) { break; }
-        cells_read++;
+        i2c_result = 4U;
+        read_done = 1U;
+        for (;;) { }
     }
-    if (i2c_result != 1U)
+
+    IP_PCC->PCCn[PCC_PORTA_INDEX] |= PCC_PCCn_CGC_MASK;
+    IP_PCC->PCCn[PCC_PORTD_INDEX] |= PCC_PCCn_CGC_MASK;
+    Port_Ci_Port_Ip_Init(
+        NUM_OF_CONFIGURED_PINS_PortContainer_0_BOARD_InitPeripherals,
+        g_pin_mux_InitConfigArr_PortContainer_0_BOARD_InitPeripherals);
+    InitI2c();
+
+    for (;;)
     {
-        /* Abort a failed transaction and release the controller outputs. */
-        IP_LPI2C0->MCR = LPI2C_MCR_RST_MASK;
-        IP_LPI2C0->MCR = 0U;
+        read_done = 0U;
+        scan_valid = 0U;
+        cells_read = 0U;
+        temperature_result = 0U;
+        for (uint32_t cell = 0U; cell < CELL_COUNT; cell++)
+        {
+            cell_result[cell] = 0U;
+        }
+        for (uint32_t cell = 0U; cell < CELL_COUNT; cell++)
+        {
+            uint8_t address = (uint8_t)(0x14U + (2U * cell));
+            ReadInt16(address, &cell_mV[cell]);
+            cell_result[cell] = i2c_result;
+            if (i2c_result != 1U) { break; }
+            cells_read++;
+        }
+        if (cells_read == CELL_COUNT)
+        {
+            /* BQ76907 0x28: signed 16-bit degrees Celsius, no scaling. */
+            ReadInt16(0x28U, &bmic_temp_c);
+            temperature_result = i2c_result;
+        }
+        if (i2c_result == 1U)
+        {
+            scan_valid = 1U;
+            scan_count++;
+        }
+        else
+        {
+            /* Keep last values, mark scan invalid, reset controller and retry.
+             * This cannot clear an external device physically holding SDA low.
+             */
+            scan_error_count++;
+            InitI2c();
+        }
+        read_done = 1U;
+        /* Optional breakpoint here: the transfer has finished.
+         * Simple pacing for this polling experiment, NOT a calibrated ms delay.
+         * Resume to keep measuring; a halted MCU cannot refresh the values.
+         */
+        for (volatile uint32_t pause = 0U; pause < 1000000U; pause++) { }
     }
-    read_done = 1U;
-    for (;;) { } /* Set a breakpoint here; do not single-step the transfer. */
 }

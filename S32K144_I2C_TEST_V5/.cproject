@@ -38,10 +38,10 @@
 									<listOptionValue builtIn="false" value="../RTD/include"/>
 									<listOptionValue builtIn="false" value="${ProjDirPath}/generate/include"/>
 									<listOptionValue builtIn="false" value="${ProjDirPath}/RTD/include"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/board&quot;"/>
 								</option>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu.504839911" name="Arm family" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu" useByScannerDiscovery="true" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu.cortex-m4" valueType="enumerated"/>
@@ -77,10 +77,10 @@
 								<option id="com.freescale.s32ds.cross.gnu.tool.cpp.compiler.option.debugging.format.1855102774" name="Debug format" superClass="com.freescale.s32ds.cross.gnu.tool.cpp.compiler.option.debugging.format" useByScannerDiscovery="true"/>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries.1137774005" name="Libraries support" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries" useByScannerDiscovery="false" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries.newlib_nano_noio" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.1231466415" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
 								</option>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu.1074827289" name="Arm family" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu" useByScannerDiscovery="true" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu.cortex-m4" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.54520722" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
@@ -206,10 +206,10 @@
 									<listOptionValue builtIn="false" value="../RTD/include"/>
 									<listOptionValue builtIn="false" value="${ProjDirPath}/generate/include"/>
 									<listOptionValue builtIn="false" value="${ProjDirPath}/RTD/include"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/board&quot;"/>
 								</option>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu.379375288" name="Arm family" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu" useByScannerDiscovery="true" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu.cortex-m4" valueType="enumerated"/>
@@ -245,10 +245,10 @@
 								<option id="com.freescale.s32ds.cross.gnu.tool.cpp.compiler.option.debugging.format.993097528" name="Debug format" superClass="com.freescale.s32ds.cross.gnu.tool.cpp.compiler.option.debugging.format" useByScannerDiscovery="true"/>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries.582829644" name="Libraries support" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries" useByScannerDiscovery="false" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries.newlib_nano_noio" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.818233642" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
 								</option>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu.1811489604" name="Arm family" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu" useByScannerDiscovery="true" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu.cortex-m4" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.164363747" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
@@ -374,10 +374,10 @@
 									<listOptionValue builtIn="false" value="../RTD/include"/>
 									<listOptionValue builtIn="false" value="${ProjDirPath}/generate/include"/>
 									<listOptionValue builtIn="false" value="${ProjDirPath}/RTD/include"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/board&quot;"/>
 								</option>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu.530084952" name="Arm family" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu" useByScannerDiscovery="true" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu.cortex-m4" valueType="enumerated"/>
@@ -413,10 +413,10 @@
 								<option id="com.freescale.s32ds.cross.gnu.tool.cpp.compiler.option.debugging.format.924644382" name="Debug format" superClass="com.freescale.s32ds.cross.gnu.tool.cpp.compiler.option.debugging.format" useByScannerDiscovery="true"/>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries.1232826623" name="Libraries support" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries" useByScannerDiscovery="false" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries.newlib_nano_noio" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.660592616" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
 								</option>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu.1515930819" name="Arm family" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu" useByScannerDiscovery="true" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu.cortex-m4" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.1893927271" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
@@ -542,10 +542,10 @@
 									<listOptionValue builtIn="false" value="../RTD/include"/>
 									<listOptionValue builtIn="false" value="${ProjDirPath}/generate/include"/>
 									<listOptionValue builtIn="false" value="${ProjDirPath}/RTD/include"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/board&quot;"/>
 								</option>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu.1589762416" name="Arm family" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu" useByScannerDiscovery="true" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.mcpu.cortex-m4" valueType="enumerated"/>
@@ -581,10 +581,10 @@
 								<option id="com.freescale.s32ds.cross.gnu.tool.cpp.compiler.option.debugging.format.318292071" name="Debug format" superClass="com.freescale.s32ds.cross.gnu.tool.cpp.compiler.option.debugging.format" useByScannerDiscovery="true"/>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries.933165240" name="Libraries support" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries" useByScannerDiscovery="false" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.libraries.newlib_nano_noio" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.689592079" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PLATFORMSDK_S32K1_S32M24_S32K144_M4F_3.0.0_PATH}/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/header&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/BaseNXP_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/NXP/S32DS.3.6.1/S32DS/software/PlatformSDK_S32K1_S32M24/RTD/Platform_TS_T40D2M30I0R0/startup/include&quot;"/>
 								</option>
 								<option id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu.605977711" name="Arm family" superClass="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu" useByScannerDiscovery="true" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.cpp.compiler.option.target.mcpu.cortex-m4" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.711003572" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
