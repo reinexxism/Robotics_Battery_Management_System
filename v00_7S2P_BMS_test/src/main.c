@@ -32,8 +32,6 @@ static void LED_SetMask(uint8 mask)
 
 int main(void)
 {
-    uint8 led;
-
     Clock_Ip_Init(Clock_Ip_aClockConfig);
 
     Port_Ci_Port_Ip_Init(
@@ -44,19 +42,30 @@ int main(void)
     /* 3. 처음에는 LED 모두 OFF */
     LED_SetMask(0U);
 
-    /* 4. LED1 -> LED2 -> LED3 -> LED4 반복 */
     for (;;)
-    {
-        for (led = 0U; led < 4U; led++)
         {
-            g_led_test_step = led + 1U;
+            /*
+             * 테스트 1: LED1~3 고정 ON, LED4 OFF
+             *
+             * 0x07 = 이진수 0111
+             * LED4 LED3 LED2 LED1
+             *   0    1    1    1
+             */
+//            LED_SetMask(0x07U);
+//            continue;  /* 아래 테스트 2를 건너뛰고 반복 */
 
-            LED_SetMask((uint8)(1U << led));
+            /*
+             * 테스트 2: LED1~3 고정 ON, LED4 반복 점멸
+             *
+             * 테스트 1의 위 두 줄을 주석 처리하면 실행됨.
+             */
+
+            /* LED1~3 ON 유지 + LED4 ON */
+            LED_SetMask(0x0FU);  /* 1111 */
             LED_Delay();
 
-            LED_SetMask(0U);
-            g_led_test_step = 0U;
+            /* LED1~3 ON 유지 + LED4 OFF */
+            LED_SetMask(0x07U);  /* 0111 */
             LED_Delay();
         }
-    }
 }
