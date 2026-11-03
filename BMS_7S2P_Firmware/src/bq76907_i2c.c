@@ -41,3 +41,15 @@ Lpi2c_Ip_StatusType Bq76907_I2cRead(uint8 reg, uint8 *data, uint32 length)
         0U, data, length, TRUE, BQ76907_I2C_WAIT_BUDGET);
 }
 
+Lpi2c_Ip_StatusType Bq76907_SelectDataMemory(uint16 address)
+{
+    uint8 command[3] = {
+        0x3EU,
+        (uint8)(address & 0xFFU),
+        (uint8)(address >> 8U)
+    };
+
+    return Lpi2c_Ip_MasterSendDataBlocking(
+        0U, command, 3U, TRUE, BQ76907_I2C_WAIT_BUDGET);
+}
+

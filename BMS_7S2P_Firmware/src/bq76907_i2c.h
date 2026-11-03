@@ -13,4 +13,6 @@
 void Bq76907_I2cInit(void);
 Lpi2c_Ip_StatusType Bq76907_I2cRead(uint8 reg, uint8 *data, uint32 length);
 
+Lpi2c_Ip_StatusType Bq76907_SelectDataMemory(uint16 address);
+
 #endif /* BQ76907_I2C_H_ */

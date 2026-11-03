@@ -36,6 +36,7 @@ volatile int exit_code = 0;
 #include "bms_power_led.h"
 #include "bq76907_i2c.h"
 #include "bq76907_status.h"
+#include "bq76907_config.h"
 
 /*General includes*/
 #include "Clock_Ip.h"
@@ -47,6 +48,9 @@ volatile int exit_code = 0;
 static volatile uint8 bmic_read_done = 0U;
 static volatile Lpi2c_Ip_StatusType bmic_read_result;
 static volatile uint16 bmic_battery_status;
+static volatile uint8 bmic_read_request = 1U;
+static volatile uint32 bmic_read_count = 0U;
+static volatile uint32 bmic_retry_count = 0U;
 
 /*!
   \brief The main function for the project.
@@ -67,22 +71,39 @@ int main(void)
 	BmsPowerLed_On();
 	Bq76907_I2cInit();
 
-	uint16 status = 0U;
-
-	bmic_read_result = BmicStatus_Read(&status);
-	if (bmic_read_result == LPI2C_IP_SUCCESS_STATUS)
-	{
-	    bmic_battery_status = status;
-	}
-	bmic_read_done = 1U;
-
-    for(;;)
+    for (;;)
     {
-        if(exit_code != 0)
+        if (bmic_read_request != 0U)
+        {
+            uint16 status = 0U;
+
+            bmic_read_request = 0U;
+            bmic_read_done = 0U;
+
+            bmic_read_result = BmicStatus_Read(&status);
+
+            if (bmic_read_result == LPI2C_IP_RECEIVED_NACK_STATUS)
+            {
+                bmic_retry_count++;
+                bmic_read_result = BmicStatus_Read(&status);
+            }
+
+            if (bmic_read_result == LPI2C_IP_SUCCESS_STATUS)
+            {
+                bmic_battery_status = status;
+                Bq76907_ConfigReadPending();
+            }
+
+            bmic_read_count++;
+            bmic_read_done = 1U;
+        }
+
+        if (exit_code != 0)
         {
             break;
         }
     }
+
     return exit_code;
 }
 
