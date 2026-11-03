@@ -120,6 +120,8 @@ PortContainer_0_BOARD_InitPeripherals:
 - options: {callFromInitBoot: 'true', coreID: core0}
 - pin_list:
   - {pin_num: '1', peripheral: PORTD, signal: 'port, 1', pin_signal: PTD1, direction: OUTPUT}
+  - {pin_num: '48', peripheral: LPI2C0, signal: lpi2c0_sda, pin_signal: PTA2, direction: OUTPUT}
+  - {pin_num: '47', peripheral: LPI2C0, signal: lpi2c0_scl, pin_signal: PTA3, direction: OUTPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -129,6 +131,28 @@ PortContainer_0_BOARD_InitPeripherals:
 
 /* Generate array of configured pin structures */
 Port_Ci_Port_Ip_PinSettingsConfig g_pin_mux_InitConfigArr_PortContainer_0_BOARD_InitPeripherals[NUM_OF_CONFIGURED_PINS_PortContainer_0_BOARD_InitPeripherals] = {
+    {
+        .portBase        = IP_PORTA,
+        .gpioBase        = NULL_PTR,
+        .pinPortIdx      = 2U,
+        .pullConfig      = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .driveStrength   = PORT_DRIVE_STRENGTH_LOW,
+        .passiveFilter   = (boolean)FALSE,
+        .mux             = PORT_MUX_ALT3,
+        .lockRegister    = PORT_LOCK_REGISTER_DISABLED,
+        .digitalFilter   = (boolean)FALSE,
+    },
+    {
+        .portBase        = IP_PORTA,
+        .gpioBase        = NULL_PTR,
+        .pinPortIdx      = 3U,
+        .pullConfig      = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .driveStrength   = PORT_DRIVE_STRENGTH_LOW,
+        .passiveFilter   = (boolean)FALSE,
+        .mux             = PORT_MUX_ALT3,
+        .lockRegister    = PORT_LOCK_REGISTER_DISABLED,
+        .digitalFilter   = (boolean)FALSE,
+    },
     {
         .portBase        = IP_PORTD,
         .gpioBase        = IP_PTD,

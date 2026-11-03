@@ -34,10 +34,19 @@
 volatile int exit_code = 0;
 /* User includes */
 #include "bms_power_led.h"
+#include "bq76907_i2c.h"
+#include "bq76907_status.h"
+
+/*General includes*/
 #include "Clock_Ip.h"
 #include "Clock_Ip_Cfg.h"
 #include "Port_Ci_Port_Ip.h"
 #include "Port_Ci_Port_Ip_Cfg.h"
+
+/*General variation*/
+static volatile uint8 bmic_read_done = 0U;
+static volatile Lpi2c_Ip_StatusType bmic_read_result;
+static volatile uint16 bmic_battery_status;
 
 /*!
   \brief The main function for the project.
@@ -56,6 +65,16 @@ int main(void)
 	);
 
 	BmsPowerLed_On();
+	Bq76907_I2cInit();
+
+	uint16 status = 0U;
+
+	bmic_read_result = BmicStatus_Read(&status);
+	if (bmic_read_result == LPI2C_IP_SUCCESS_STATUS)
+	{
+	    bmic_battery_status = status;
+	}
+	bmic_read_done = 1U;
 
     for(;;)
     {

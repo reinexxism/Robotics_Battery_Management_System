@@ -39,6 +39,16 @@
                         <pin_feature name="direction" value="OUTPUT"/>
                      </pin_features>
                   </pin>
+                  <pin peripheral="LPI2C0" signal="lpi2c0_sda" pin_num="48" pin_signal="PTA2">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="LPI2C0" signal="lpi2c0_scl" pin_num="47" pin_signal="PTA3">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
                </pins>
             </function>
          </functions_list>
@@ -248,14 +258,33 @@
                   <data type="Version">1.0.0</data>
                </feature>
             </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.lpi2c" description="Lpi2c is not found in the toolchain/IDE project. The project will not compile!" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.lpi2c" description="An unsupported version of the Lpi2c in the toolchain/IDE project. Required: ${required_value}, actual: ${actual_value}. The project might not compile correctly." problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="Tool" resourceId="Clocks" description="The Clocks tool is required by the Peripherals tool, but it is disabled." problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data>true</data>
+               </feature>
+            </dependency>
          </dependencies>
          <generated_project_files>
             <file path="generate/include/DeviceDefinition.h" update_enabled="true"/>
+            <file path="generate/include/Lpi2c_Ip_Cfg.h" update_enabled="true"/>
+            <file path="generate/include/Lpi2c_Ip_CfgDefines.h" update_enabled="true"/>
+            <file path="generate/include/Lpi2c_Ip_PBcfg.h" update_enabled="true"/>
             <file path="generate/include/OsIf_ArchCfg.h" update_enabled="true"/>
             <file path="generate/include/OsIf_Cfg.h" update_enabled="true"/>
             <file path="generate/include/Port_Ci_Port_Ip_Defines.h" update_enabled="true"/>
             <file path="generate/include/Soc_Ips.h" update_enabled="true"/>
             <file path="generate/include/modules.h" update_enabled="true"/>
+            <file path="generate/src/Lpi2c_Ip_PBcfg.c" update_enabled="true"/>
             <file path="generate/src/OsIf_Cfg.c" update_enabled="true"/>
          </generated_project_files>
          <peripherals_profile>
@@ -339,6 +368,78 @@
                                        <setting name="PortPinInitialMode" value="PORT_GPIO_MODE"/>
                                     </struct>
                                  </array>
+                              </struct>
+                           </array>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="Lpi2c" uuid="3dd3ef1f-7fb1-4140-a332-f03cd17aed74" type="Lpi2c" type_id="Lpi2c" mode="lpi2c" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="Lpi2c">
+                        <setting name="Name" value="Lpi2c"/>
+                        <struct name="ConfigTimeSupport">
+                           <setting name="POST_BUILD_VARIANT_USED" value="false"/>
+                           <setting name="IMPLEMENTATION_CONFIG_VARIANT" value="VARIANT-POST-BUILD"/>
+                        </struct>
+                        <struct name="GeneralConfiguration">
+                           <setting name="Name" value="GeneralConfiguration"/>
+                           <setting name="I2cEnableUserModeSupport" value="false"/>
+                           <setting name="I2cDevErrorDetect" value="false"/>
+                           <setting name="I2cDmaUsed" value="false"/>
+                           <setting name="I2c_ErrorCallback" value="false"/>
+                           <setting name="I2cTimeoutMethod" value="OSIF_COUNTER_DUMMY"/>
+                        </struct>
+                        <struct name="I2cGlobalConfig">
+                           <setting name="Name" value="I2cGlobalConfig"/>
+                           <array name="I2cChannel">
+                              <struct name="0">
+                                 <setting name="Name" value="I2cChannelConfig_0"/>
+                                 <setting name="I2cChannelId" value="0"/>
+                                 <setting name="I2cHwChannel" value="LPI2C_0"/>
+                                 <setting name="I2cOperatingMode" value="LPI2C_STANDARD_MODE"/>
+                                 <setting name="I2cMasterSlaveConfiguration" value="MASTER_MODE"/>
+                                 <struct name="I2cMasterConfiguration">
+                                    <setting name="Name" value="I2c_Lpi2cMasterChannel0"/>
+                                    <setting name="I2cSlaveAddress" value="8"/>
+                                    <setting name="I2cSlaveIs10BitAddress" value="false"/>
+                                    <setting name="I2cPrescaler" value="LPI2C_MASTER_PRESC_DIV_1"/>
+                                    <setting name="I2cDataValidDelay" value="19"/>
+                                    <setting name="I2cSetupHoldDelay" value="39"/>
+                                    <setting name="I2cClockHighPeriod" value="37"/>
+                                    <setting name="I2cClockLowPeriod" value="39"/>
+                                    <setting name="I2cPinLowTimeout" value="0"/>
+                                    <setting name="I2cBusIdleTimeout" value="0"/>
+                                    <setting name="I2cMasterFilterEnable" value="false"/>
+                                    <setting name="I2cGlitchFilterSDA" value="0"/>
+                                    <setting name="I2cGlitchFilterSCL" value="0"/>
+                                    <setting name="I2cAsyncMethod" value="LPI2C_USING_INTERRUPTS"/>
+                                    <array name="I2cDmaTxChannelRef"/>
+                                    <array name="I2cDmaRxChannelRef"/>
+                                    <setting name="I2cClockFunctionalGroupRef" value="ClockConfig0"/>
+                                    <setting name="lpi2c_master_cfg_masterCallback" value="NULL_PTR"/>
+                                    <setting name="lpi2c_master_cfg_callbackParam" value="0"/>
+                                    <struct name="I2cHighSpeedModeConfiguration">
+                                       <setting name="Name" value="I2c_Lpi2cMasterHighSpeedMode0"/>
+                                       <setting name="I2cMasterCode" value="0"/>
+                                       <setting name="I2cDataValidDelay" value="1"/>
+                                       <setting name="I2cSetupHoldDelay" value="2"/>
+                                       <setting name="I2cClockHighPeriod" value="1"/>
+                                       <setting name="I2cClockLowPeriod" value="3"/>
+                                    </struct>
+                                 </struct>
+                                 <struct name="I2cSlaveConfiguration">
+                                    <setting name="Name" value="I2c_Lpi2cSlaveChannel0"/>
+                                    <setting name="I2cSlaveAddress" value="0x32"/>
+                                    <setting name="I2cSlaveIs10BitAddress" value="false"/>
+                                    <setting name="Lpi2cSlaveListening" value="false"/>
+                                    <setting name="I2cSlaveFilterEnable" value="false"/>
+                                    <setting name="I2cGlitchFilterSDA" value="0"/>
+                                    <setting name="I2cGlitchFilterSCL" value="0"/>
+                                    <setting name="I2cAsyncMethod" value="LPI2C_USING_INTERRUPTS"/>
+                                    <array name="I2cSlaveDmaTxChannelRef"/>
+                                    <array name="I2cSlaveDmaRxChannelRef"/>
+                                    <setting name="lpi2c_slave_cfg_slaveCallback" value="NULL_PTR"/>
+                                    <setting name="lpi2c_slave_cfg_callbackParam" value="0"/>
+                                 </struct>
                               </struct>
                            </array>
                         </struct>
