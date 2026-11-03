@@ -37,4 +37,13 @@ typedef struct
 
 void Bq76907_ConfigReadPending(void);
 
+typedef enum
+{
+    BQ_7S_UNKNOWN = 0,
+    BQ_7S_MATCH,
+    BQ_7S_MISMATCH
+} Bq76907_7sCheck;
+
+Bq76907_7sCheck Bq76907_ConfigCheck7s(void);
+
 #endif /* BQ76907_CONFIG_H_ */

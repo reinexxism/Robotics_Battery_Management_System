@@ -48,6 +48,7 @@ volatile int exit_code = 0;
 static volatile uint8 bmic_read_done = 0U;
 static volatile Lpi2c_Ip_StatusType bmic_read_result;
 static volatile uint16 bmic_battery_status;
+static volatile Bq76907_7sCheck bmic_7s_check = BQ_7S_UNKNOWN;
 static volatile uint8 bmic_read_request = 1U;
 static volatile uint32 bmic_read_count = 0U;
 static volatile uint32 bmic_retry_count = 0U;
@@ -92,6 +93,7 @@ int main(void)
             {
                 bmic_battery_status = status;
                 Bq76907_ConfigReadPending();
+                bmic_7s_check = Bq76907_ConfigCheck7s();
             }
 
             bmic_read_count++;
